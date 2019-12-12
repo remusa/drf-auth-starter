@@ -15,18 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from users.views import EmailTokenObtainPairView
+
+from .views import api_root
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("users/", include("users.urls")),
     path("accounts/", include("allauth.urls")),
-    # NOTE: Override login view to return JWT tokens instead of rest_auth Token
-    path("rest-auth/login/", EmailTokenObtainPairView.as_view(), name="rest_login"),
+    path("users/", include("users.urls")),
     path("rest-auth/", include("rest_auth.urls")),
     path("rest-auth/registration/", include("rest_auth.registration.urls")),
-    # path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/token/", EmailTokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("", api_root),
 ]

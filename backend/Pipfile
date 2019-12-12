@@ -9,10 +9,8 @@ black = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
-django-rest-auth = "*"
 django-allauth = "*"
-djangorestframework-simplejwt = "*"
-djangorestframework-jwt = "*"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.8"
