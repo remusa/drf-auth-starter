@@ -5,13 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+pyyaml = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 django-allauth = "*"
 django-rest-auth = "*"
-pyyaml = "*"
 
 [requires]
 python_version = "3.8"
