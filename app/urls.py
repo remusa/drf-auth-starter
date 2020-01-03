@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# from rest_framework.schemas import get_schema_view
+
 from .views import api_root
 
 urlpatterns = [
@@ -25,4 +27,15 @@ urlpatterns = [
     path("rest-auth/", include("rest_auth.urls")),
     path("rest-auth/registration/", include("rest_auth.registration.urls")),
     path("", api_root),
+    # path(
+    #     "openapi",
+    #     get_schema_view(
+    #         title="Podview",
+    #         description="API for developers",
+    #         version="1.0.0",
+    #         url="https://localhost:8000/api/",
+    #         # urlconf="urls",
+    #     ),
+    #     name="openapi-schema",
+    # ),
 ]
