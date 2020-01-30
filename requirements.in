@@ -1,0 +1,31 @@
+# Create requirements.txt
+# pip freeze > requirements.txt
+# pip install -r requirements.txt
+
+# Generate requirements.txt from this file
+# pip-compile --output-file=requirements.txt requirements.in
+
+# [dev-packages]
+# black==19.10b0
+# autopep8==1.5
+
+# [packages]
+django==3.0.2
+djangorestframework==3.11.0
+django-rest-auth==0.9.5
+django-allauth==0.41.0
+django-cors-headers==3.2.1
+# graphene-django==2.8.0
+# django-filter==2.2.0
+# django-graphql-jwt==0.3.0
+pip-tools==4.3.0
+# psycopg2-binary==2.8.4
+# whitenoise==5.0.1
+gunicorn==20.0.4
+dj-database-url==0.5.0
+django-debug-toolbar==2.1
+django-environ==0.4.5
+django-extensions==2.2.6
+django-simple-history==2.8.0
+# django-storages==1.8
+# djet ==0.2.2
