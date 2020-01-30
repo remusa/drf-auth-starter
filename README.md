@@ -15,11 +15,11 @@ pipenv install --dev black==19.10b0 autopep8==1.5
 
 ## Docker
 
-* Build image: `docker build .`.
+* Build image: `docker build .`
   * Use `--no-cache` to force rebuilding the image.
-* Run docker-compose detached (in background): `docker-compose up -d`.
-* Run docker-compose and force build: `docker-compose up -d --build`.
-* Close docker-compose container: `docker-compose down`.
+* Run docker-compose detached (in background): `docker-compose up -d`
+* Run docker-compose and force build: `docker-compose up -d --build`
+* Close docker-compose container: `docker-compose down`
 
 * When installing new packages, rebuild the image to avoid `Pipfile` and `Pipfile.lock` errors:
 
@@ -28,15 +28,15 @@ docker-compose down
 docker-compose up -d --build
 ```
 
-* To run with another `docker-compose` file: `docker-compose -f docker-compose-prod.yml up -d --build`.
+* To run with another `docker-compose` file: `docker-compose -f docker-compose-prod.yml up -d --build`
 
 ### Django commands
 
-* Run commands *inside* the docker image: `docker-compose exec [service]`.
+* Run commands *inside* the docker image: `docker-compose exec [service]`
 
-* Make migrations: `docker-compose exec web python manage.py makemigrations`.
-* Migrate database: `docker-compose exec web python manage.py migrate --noinput`.
-* Create superuser: `docker-compose exec web python manage.py createsuperuser`.
+* Make migrations: `docker-compose exec web python manage.py makemigrations`
+* Migrate database: `docker-compose exec web python manage.py migrate --noinput`
+* Create superuser: `docker-compose exec web python manage.py createsuperuser`
   * `admin@admin.com`
   * `admin`
   * `admin123`
@@ -44,7 +44,7 @@ docker-compose up -d --build
   * `test`
   * `test@test.com`
   * `test123456`
-* Check predeploy: `docker-compose exec web python manage.py check --deploy`.
+* Check predeploy: `docker-compose exec web python manage.py check --deploy`
 
 #### Optional
 
