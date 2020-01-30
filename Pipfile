@@ -4,14 +4,23 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
-pyyaml = "*"
+black = "==19.10b0"
+autopep8 = "==1.5"
 
 [packages]
-django = "*"
-djangorestframework = "*"
-django-rest-auth = "*"
-django-allauth = "*"
+dj-database-url = "==0.5.0"
+django-allauth = "==0.41.0"
+django-cors-headers = "==3.2.1"
+django-debug-toolbar = "==2.1"
+django-environ = "==0.4.5"
+django-extensions = "==2.2.6"
+django-rest-auth = "==0.9.5"
+django-simple-history = "==2.8.0"
+djangorestframework = "==3.11.0"
+gunicorn = "==20.0.4"
+pip-tools = "==4.3.0"
+Django = "==3.0.2"
+whitenoise = "==5.0.1"
 
 [requires]
 python_version = "3.8"
