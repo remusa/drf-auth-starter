@@ -28,6 +28,8 @@ docker-compose down
 docker-compose up -d --build
 ```
 
+* To run with another `docker-compose` file: `docker-compose -f docker-compose-prod.yml up -d --build`.
+
 ### Django commands
 
 * Run commands *inside* the docker image: `docker-compose exec [service]`.
@@ -42,11 +44,24 @@ docker-compose up -d --build
   * `test`
   * `test@test.com`
   * `test123456`
+* Check predeploy: `docker-compose exec web python manage.py check --deploy`.
 
 #### Optional
 
-* Install `psycopg`: `docker-compose exec web pipenv install psycopg2-binary==2.8.4`.
-* Install additional packages: `docker-compose exec web pipenv install dj-database-url==0.5.0 gunicorn==20.0.4`.
+* Install `psycopg`: `docker-compose exec web pipenv install psycopg2-binary==2.8.4`
+* Install additional packages: `docker-compose exec web pipenv install dj-database-url==0.5.0 gunicorn==20.0.4`
+
+## Deploy to Heroku
+
+* `heroku create`.
+* `heroku stack:set container -a [damp-dawn-44130]`
+* `heroku addons:create heroku-postgresql:hobby-dev -a [damp-dawn-44130]`
+* `heroku git:remote -a [damp-dawn-44130]`
+* `git push heroku master`
+* `heroku run python manage.py migrate`
+* `heroku run python manage.py createsuperuser`
+* `heroku open -a [damp-dawn-44130]`
+* `heroku logs --tail`
 
 ## Resources
 

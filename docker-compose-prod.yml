@@ -16,8 +16,8 @@ services:
     environment:
       # Django
       - SECRET_KEY=glsiw36-skd7q8i0c$i7n=-!yp8-vw7*too07q10i*t15vgx4c
-      - DEBUG=1
-      - ENVIRONMENT=development
+      - DEBUG=0
+      - ENVIRONMENT=production
       # PostgreSQL
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
       # Stripe
