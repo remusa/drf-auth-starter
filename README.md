@@ -38,8 +38,7 @@ docker-compose up -d --build
   * `admin@admin.com`
   * `admin`
   * `admin123`
-
-* Test user:
+* Create test user:
   * `test`
   * `test@test.com`
   * `test123456`
