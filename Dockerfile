@@ -33,5 +33,5 @@ COPY . /code/
 RUN adduser -D myuser
 USER myuser
 
-# Run gunicorn
+# Run gunicorn (--reload for hot reload)
 CMD gunicorn hello_django.wsgi:application --bind 0.0.0.0:$PORT
