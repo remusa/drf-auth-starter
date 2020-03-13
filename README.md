@@ -17,6 +17,9 @@ pipenv install --dev black==19.10b0 autopep8==1.5
 
 * Build image: `docker build .`
   * Use `--no-cache` to force rebuilding the image.
+
+### Docker Compose
+
 * Run docker-compose detached (in background): `docker-compose up -d`
 * Run docker-compose and force build: `docker-compose up -d --build`
 * Close docker-compose container: `docker-compose down`
