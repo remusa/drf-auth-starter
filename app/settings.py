@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     "rest_auth",
     "rest_auth.registration",
     # Local
-    "users",
+    "users.apps.UsersConfig",
 ]
 
 MIDDLEWARE = [
