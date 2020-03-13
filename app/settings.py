@@ -62,11 +62,12 @@ INSTALLED_APPS = [
     # DRF & authentication
     "rest_framework",
     "rest_framework.authtoken",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "rest_auth",
-    "rest_auth.registration",
+    "djoser",
+    # "allauth",
+    # "allauth.account",
+    # "allauth.socialaccount",
+    # "rest_auth",
+    # "rest_auth.registration",
     # Local
     "users.apps.UsersConfig",
 ]
@@ -175,23 +176,35 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-ACCOUNT_SESSION_REMEMBER = True
+DJOSER = {
+    # "USER_ID_FIELD": "email",
+    # "LOGIN_FIELD": "email",
+    "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
+    "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    "SEND_ACTIVATION_EMAIL": True,
+    "ACTIVATION_URL": "#/activate/{uid}/{token}",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    # "LOGOUT_ON_PASSWORD_CHANGE": False,
+    # "SERIALIZERS": {},
+}
+
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_AUTHENTICATION_METHOD = "email"
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# ACCOUNT_SESSION_REMEMBER = True
 # Email verification
 # TODO: set to "mandatory"
-ACCOUNT_EMAIL_VERIFICATION = "optional"
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/?verification=1"
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/?verification=1"
+# ACCOUNT_EMAIL_VERIFICATION = "optional"
+# ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/?verification=1"
+# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/?verification=1"
 
-REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "users.serializers.UserSerializer",
-}
+# REST_AUTH_SERIALIZERS = {
+#     "USER_DETAILS_SERIALIZER": "users.serializers.UserSerializer",
+# }
 
 # CORS headers
 CORS_ORIGIN_ALLOW_ALL = True
