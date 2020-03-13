@@ -19,6 +19,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.schemas import get_schema_view
 
 from .api import router
 
@@ -37,10 +38,10 @@ urlpatterns = [
     # path(
     #     "openapi",
     #     get_schema_view(
-    #         title="Podview",
+    #         title="DRF Starter",
     #         description="API for developers",
     #         version="1.0.0",
-    #         url="https://localhost:8000/api/",
+    #         url="https://localhost:8000/api/v1/",
     #         # urlconf="urls",
     #     ),
     #     name="openapi-schema",
