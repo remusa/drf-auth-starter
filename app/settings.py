@@ -64,9 +64,9 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
-    "rest_auth",
-    "rest_auth.registration",
+    # "allauth.socialaccount",
+    "dj_rest_auth",
+    "dj_rest_auth.registration",
     # Local
     "users.apps.UsersConfig",
 ]
