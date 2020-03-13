@@ -9,7 +9,10 @@ class CustomUser(AbstractUser):
     username = models.CharField(
         verbose_name="username", max_length=255, unique=True, null=True, blank=True
     )
-    email = models.EmailField(verbose_name="email address", max_length=255, unique=True)
+    email = models.EmailField(
+        verbose_name="email address", max_length=255, unique=True, null=False, blank=False
+    )
+    # date_modified = models.DateTimeField(verbose_name='date modified', default=timezone.now, auto_now=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

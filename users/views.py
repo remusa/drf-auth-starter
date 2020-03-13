@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import generics, viewsets
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
@@ -17,3 +18,5 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     # permission_classes = [IsAuthenticated, IsAdminUser]
     permission_classes = [IsAdminUser]
     pagination_classes = [PageNumberPagination]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["id", "email", "username"]

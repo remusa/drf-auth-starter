@@ -13,5 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "id",
             "username",
             "email",
+            "last_login",
+            "date_joined",
             "url",
         ]
