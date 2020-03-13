@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-from datetime import timedelta
 import os
 import socket
+from datetime import timedelta
 
 import dj_database_url
 
@@ -36,6 +36,7 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 ENVIRONMENT = os.environ.get("ENVIRONMENT", default="development")
 
 ALLOWED_HOSTS = [
+    # TODO: setup heroku url
     ".herokuapp.com",  # Heroku url
     "localhost",
     "127.0.0.1",
@@ -58,7 +59,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # "django_extensions",
     "debug_toolbar",
-    # DRF & allauth
+    # DRF & authentication
     "rest_framework",
     "rest_framework.authtoken",
     "allauth",
@@ -67,7 +68,6 @@ INSTALLED_APPS = [
     "rest_auth",
     "rest_auth.registration",
     # Local
-    "api",
     "users",
 ]
 
@@ -175,12 +175,23 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_UNIQUE_EMAIL = True
+# Email verification
+# TODO: set to "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "/?verification=1"
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/?verification=1"
+
+REST_AUTH_SERIALIZERS = {
+    "USER_DETAILS_SERIALIZER": "users.serializers.UserSerializer",
+}
 
 # CORS headers
 CORS_ORIGIN_ALLOW_ALL = True
