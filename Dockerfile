@@ -34,4 +34,4 @@ RUN adduser -D myuser
 USER myuser
 
 # Run gunicorn (--reload for hot reload)
-CMD gunicorn hello_django.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn starter-drf.wsgi:application --bind 0.0.0.0:$PORT
