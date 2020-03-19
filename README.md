@@ -1,5 +1,26 @@
 # Backend configuration
 
+## Example .evn file
+
+```bash
+# PostgreSQL
+POSTGRESQL_NAME=postgres
+POSTGRESQL_USER=postgres
+POSTGRESQL_PASSWORD=postgres
+
+# Django
+DATABASE_URL=postgres://${POSTGRESQL_NAME}:${POSTGRESQL_USER}@db:5432/${POSTGRESQL_NAME}
+SECRET_KEY=superawesomedjangosecret123
+DEBUG=1
+ENVIRONMENT=development
+DJANGO_STATIC_HOST=
+DJANGO_MEDIA_HOST=
+
+# Stripe
+STRIPE_LIVE_PUBLISHABLE_KEY=development123456
+STRIPE_LIVE_SECRET_KEY=development123456
+```
+
 ## Packages
 
 ```bash

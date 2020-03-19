@@ -1,3 +1,6 @@
+# TODO: UNCOMMENT THESE IN PRODUCTION
+# *.override.yml
+# *.env*
 
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django

@@ -5,24 +5,16 @@ services:
     image: postgres:12.1-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      # PostgreSQL
-      - POSTGRESQL_NAME=postgres
-      - POSTGRESQL_USER=postgres
-      - POSTGRESQL_PASSWORD=postgres
+    env_file:
+      - '.env'
+
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
-    environment:
-      # Django
-      - SECRET_KEY=glsiw36-skd7q8i0c$i7n=-!yp8-vw7*too07q10i*t15vgx4c
-      - DEBUG=1
-      - ENVIRONMENT=development
-      # PostgreSQL
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-      # Stripe
-      - STRIPE_LIVE_PUBLISHABLE_KEY=123456
-      - STRIPE_LIVE_SECRET_KEY=123456
+    command: >
+      sh -c "python manage.py migrate &&
+        python manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - '.env'
     volumes:
       - .:/code
     ports:

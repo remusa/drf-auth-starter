@@ -27,7 +27,7 @@ RUN pip install --upgrade pip \
 COPY . /code/
 
 # Collect static files
-# RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 # Add and run as non-root user
 RUN adduser -D myuser
